@@ -3,7 +3,7 @@ from random import randint
 
 def main(des, number, precis=1) -> None:
     
-    occ = 0 
+    occ = 0
     i = 0
 
     while i <= 1000 * precis:
