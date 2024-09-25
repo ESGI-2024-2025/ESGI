@@ -1,6 +1,4 @@
 
-title = "TD 00"
-
 def main() -> None:
     a = 23
     b = 39
