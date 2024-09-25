@@ -5,7 +5,7 @@ def main() -> int:
     i = 0
     space = 0
 
-    while i<200:
+    while i<rope:
 
         if i*(rope-2*i) < space:
             return i-1
