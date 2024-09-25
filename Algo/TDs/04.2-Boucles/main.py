@@ -1,18 +1,17 @@
 
 def main() -> int:
     
-    actual_participant = 3000
-    maximum_participant = 8000
-    price = 50
+    rope = 200
+    i = 0
+    space = 0
 
-    while (
-    price * actual_participant < (price - 0.6) * (actual_participant + 100)
-    and actual_participant+100 <= maximum_participant
-    ):
-        actual_participant += 100
-        price -= 0.6
-    
-    return price
+    while i<200:
+
+        if i*(rope-2*i) < space:
+            return i-1
+
+        space = i*(rope-2*i)
+        i += 1
 
 if __name__ == "__main__":
     print(main())
