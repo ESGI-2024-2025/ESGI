@@ -4,40 +4,30 @@
 var title = "TD 04"; // à changer à chaque TD (par l'objectif pédagogique)
 
 function main() {
-  const waitedSpectator = 3000;
-  const maxSpectator = 8000;
-  const initialPrice = 50;
-  let newPrice = initialPrice;
-  let spectators = waitedSpectator;
+  const ropeLength = 200;
 
-  let maxTotal = 0;
-  let maxIndividualPrice = 0;
-  let maxTotalSpectator = 0;
+  let heigth = 0;
 
-  while (spectators < maxSpectator) {
-    newPrice = newPrice - 0.6;
-    spectators = spectators + 100;
+  let maxArea = 0;
+  let maxAreaHeigth = 0;
+  let maxAreaWidth = 0;
 
-    let total = newPrice * spectators;
-    if (total > maxTotal) {
-      maxTotal = total;
-      maxIndividualPrice = newPrice;
-      maxTotalSpectator = spectators;
+  while (heigth < ropeLength) {
+    let width = ropeLength - heigth;
+    let area = width * heigth;
+
+    if (area > maxArea) {
+      maxArea = area;
+      maxAreaHeigth = heigth;
+      maxAreaWidth = width;
     }
-    // En cas de prix négatif, on arrête la boucle puisque le prix va continuer à baisser jusqu'à la fin.
-    else {
-      break;
-    }
+
+    heigth++;
   }
 
   setContent(
-    "Le prix du billet est de " +
-      maxIndividualPrice +
-      "€ pour " +
-      maxTotalSpectator +
-      " spectateurs."
+    `La superficie maximale est de ${maxArea}m² pour une hauteur de ${maxAreaHeigth}m et une largeur de ${maxAreaWidth}m.`
   );
-  setContent("La recette est de " + maxTotal + "€.");
 }
 
 function setTitle() {

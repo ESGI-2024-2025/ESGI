@@ -4,32 +4,27 @@
 #define EXIT_SUCCESS 0
 
 int main() {
+    int height = 0, ropeLength = 200;
 
-    int waitedSpectators = 3000, maxSpectator = 8000, initialPrice = 50;
+    int maxArea = 0;
+    int maxAreaHeight = 0;
+    int maxAreaWidth = 0;
 
-    float newPrice = initialPrice;
-    int spectators = waitedSpectators;
+    while (height < ropeLength) {
+        int width = ropeLength - height * 2;
+        int area = height * width;
 
-    float maxPrice = 0;
-    int maxPriceSpectator = 0;
-    float maxTicketPrice = 0;
-
-    while (spectators < maxSpectator) {
-        newPrice = newPrice - 0.6;
-        spectators = spectators + 100;
-
-        float total = newPrice * spectators;
-        if (total > maxPrice) {
-            maxPrice = total;
-            maxPriceSpectator = spectators;
-            maxTicketPrice = newPrice;
-        } else {
-            break;
+        printf("Height: %d, Width: %d, Area: %d\n", height, width, area);
+        
+        if (area > maxArea && width != height) {
+            maxArea = area;
+            maxAreaHeight = height;
+            maxAreaWidth = width;
         }
+        height++;
     }
 
-    printf("The new price is %f with %d spectators\n", maxTicketPrice, maxPriceSpectator);
-    printf("The total income is average %.2f€ (exact: %f€)\n", maxPrice, maxPrice);
+    printf("The maximum area is %d with a height of %d and a width of %d\n", maxArea, maxAreaHeight, maxAreaWidth);
 
     return EXIT_SUCCESS;
 }
