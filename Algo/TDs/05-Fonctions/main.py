@@ -5,7 +5,7 @@ def main(des, number, precis=1) -> None:
     
     occ = 0 
     i = 0
-    
+
     while i <= 1000 * precis:
 
         i+=1
@@ -20,4 +20,8 @@ def main(des, number, precis=1) -> None:
 
 
 if __name__ == "__main__":
-    print(main(4,1,100))
+    nombre_de_des = int(input("Combien de dés voulez vous generer ? "))
+    valeur = int(input("Quelle valeur voulez vous tester ? "))
+    precision = int(input("Entrez un degré de précision: "))
+
+    print(main(nombre_de_des,valeur,precision))
