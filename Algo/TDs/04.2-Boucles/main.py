@@ -7,10 +7,12 @@ def main() -> int:
 
     while height<rope:
 
-        if height*(rope-2*height) < space:
+        width = (rope-2*height)
+
+        if height*width < space:
             return height-1
 
-        space = height*(rope-2*height)
+        space = height*width
         height += 1
 
 if __name__ == "__main__":
