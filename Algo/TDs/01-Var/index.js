@@ -19,8 +19,11 @@ function setTitle() {
   document.getElementById("title").innerHTML = title;
 }
 
+let contents = [];
+
 const setContent = (content) => {
-  document.getElementById("content").innerHTML = content;
+  contents.push(content);
+  document.getElementById("content").innerHTML = contents.join("<br>");
 };
 
 document.addEventListener("DOMContentLoaded", function () {
