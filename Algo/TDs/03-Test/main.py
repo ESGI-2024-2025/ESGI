@@ -8,9 +8,9 @@ def main() -> bool:
     
     year = int(year)
 
-    if year%4 == 0 and year%100 != 0:
+    if not year%4 and year%100:
         return True
-    elif year%400 == 0:
+    elif not year%400:
         return True
     else:
         return False
