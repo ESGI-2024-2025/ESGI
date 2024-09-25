@@ -1,15 +1,11 @@
 "use strict";
 /* CDC
  */
-var title = "TD 01 - Var"; // à changer à chaque TD (par l'objectif pédagogique)
+var title = "TD 03 - Test"; // à changer à chaque TD (par l'objectif pédagogique)
 
 function main() {
   let a = 23;
   let b = 45;
-
-  let c = a;
-  a = b;
-  b = c;
 
   // Vous pouvez utiliser cette fonction pour afficher un résultat sur la page.
   setContent("a = " + a + " et b = " + b);
