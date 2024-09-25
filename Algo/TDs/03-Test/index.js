@@ -6,6 +6,8 @@ function main() {
 
   // Vous pouvez utiliser cette fonction pour afficher un résultat sur la page.
   setContent("L'année " + year + " " + result);
+
+  testEstBissextile();
 }
 
 function estBissextile(year) {
@@ -20,12 +22,43 @@ function estBissextile(year) {
   }
 }
 
+function testEstBissextile() {
+  setContent("Test estBissextile");
+  let tests = [
+    [2000, true],
+    [2004, true],
+    [1900, false],
+    [2001, false],
+  ];
+  let success = true;
+  tests.forEach((test) => {
+    let [year, expected] = test;
+    let result = estBissextile(year);
+    if (result !== expected) {
+      setContent(
+        "Test estBissextile: échec pour l'année " +
+          year +
+          ". Résultat attendu: " +
+          expected +
+          ". Résultat obtenu: " +
+          result
+      );
+      success = false;
+    } else {
+      setContent("Test estBissextile: succès pour l'année " + year);
+    }
+  });
+}
+
 function setTitle() {
   document.getElementById("title").innerHTML = title;
 }
 
+let contents = [];
+
 const setContent = (content) => {
-  document.getElementById("content").innerHTML = content;
+  contents.push(content);
+  document.getElementById("content").innerHTML = contents.join("<br>");
 };
 
 document.addEventListener("DOMContentLoaded", function () {
