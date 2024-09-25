@@ -6,7 +6,7 @@
 int main() {
 
     int waitedSpectators = 3000, maxSpectator = 8000, initialPrice = 50;
-    
+
     float newPrice = initialPrice;
     int spectators = waitedSpectators;
 
@@ -23,6 +23,8 @@ int main() {
             maxPrice = total;
             maxPriceSpectator = spectators;
             maxTicketPrice = newPrice;
+        } else {
+            break;
         }
     }
 

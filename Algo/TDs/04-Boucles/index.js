@@ -24,6 +24,10 @@ function main() {
       maxIndividualPrice = newPrice;
       maxTotalSpectator = spectators;
     }
+    // En cas de prix négatif, on arrête la boucle puisque le prix va continuer à baisser jusqu'à la fin.
+    else {
+      break;
+    }
   }
 
   setContent(
