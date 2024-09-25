@@ -15,6 +15,7 @@ int main() {
     }
 
     printf("The new price is %f with %d spectators\n", newPrice, spectators);
+    printf("The total income is average %.2f€ (exact: %f€)\n", newPrice * spectators, newPrice * spectators);
 
     return EXIT_SUCCESS;
 }
