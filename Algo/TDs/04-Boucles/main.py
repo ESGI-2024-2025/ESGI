@@ -5,8 +5,10 @@ def main() -> int:
     maximum_participant = 8000
     price = 50
 
-    while (price * actual_participant < (price - 0.6) * (actual_participant + 100)
-    and actual_participant+100 <= maximum_participant):
+    while (
+    price * actual_participant < (price - 0.6) * (actual_participant + 100)
+    and actual_participant+100 <= maximum_participant
+    ):
         actual_participant += 100
         price -= 0.6
     
