@@ -1,5 +1,5 @@
 
-def changeValue(a:int, b:int) -> (int, int):
+def changeValue(a:int, b:int) -> tuple[int, int]:
     c = b
     b = a
     a = c
