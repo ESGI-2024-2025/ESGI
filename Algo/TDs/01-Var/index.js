@@ -11,6 +11,7 @@ function main() {
   a = b;
   b = c;
 
+  // Vous pouvez utiliser cette fonction pour afficher un résultat sur la page.
   setContent("a = " + a + " et b = " + b);
 }
 
