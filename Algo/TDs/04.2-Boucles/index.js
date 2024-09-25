@@ -13,10 +13,10 @@ function main() {
   let maxAreaWidth = 0;
 
   while (heigth < ropeLength) {
-    let width = ropeLength - heigth;
+    let width = ropeLength - heigth * 2;
     let area = width * heigth;
 
-    if (area > maxArea) {
+    if (area > maxArea && width != heigth) {
       maxArea = area;
       maxAreaHeigth = heigth;
       maxAreaWidth = width;
