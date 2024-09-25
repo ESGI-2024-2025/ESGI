@@ -1,21 +1,25 @@
 # ESGI@Algo ESGI1 2024/2025
+
 # --------------
+
 # 1/ Objectif
-- maîtrise du test
+- Mettre au point un test d'algo
+- Debugger (trace, sortie, log, ...)
+- Maîtrise de VScode
 
 # 2/ Todo
-Une année est bissextile si elle est divisible par 4 mais pas par 100.
-Toutefois, une année divisible par 400 est bissextile.
+Installer le dossier livré
+Installer VSCode/LiveServer
+Exécuter, débugger, générer une erreur
 
 # 3/ Consignes
-le test doit être optimisé mais être toutefois lisible!
-(cf tuto 12/13)
+ - décommenter le code opérationnel
+ - changer le titre
+ - lancer index.htm dans vscode
+ - debugger le prog en mettant un point d'arrêt dans la méthode main
 
 # 4/ Résultats attendus
-2014 n'était pas bissextile
-2012 était bissextile
-2000 était bissextile
-1900 n'était pas bissextile
+Le projet sert de modèle aux autres exercices
 
 # 5/ aide
 'prompt' permet d'injecter des infos au programme via une popup (produit un string)
