@@ -15,7 +15,6 @@ int main() {
 
     inverser(&a, &b);
 
-    // Print a and b
     printf("a = %d, b = %d\n", a, b);
 
     return EXIT_SUCCESS;
