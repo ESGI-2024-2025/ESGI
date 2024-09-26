@@ -1,5 +1,5 @@
 
-def fibo_r(nombre_elements=7,suite=[1,1]) -> list:
+def fibo_r(nombre_elements=7,suite=[0,1]) -> list:
 
     if nombre_elements <= 2:
         return suite
@@ -9,7 +9,7 @@ def fibo_r(nombre_elements=7,suite=[1,1]) -> list:
 
 def fibo_b(nombre_elements=7) -> list:
 
-    nombres_suite = [1,1]
+    nombres_suite = [0,1]
 
     for _ in range(nombre_elements-2):
         nouveau_chiffre = nombres_suite[-2] + nombres_suite[-1]
