@@ -1,14 +1,57 @@
 "use strict";
 /* CDC
  */
-var title = "TD xx"; // à changer à chaque TD (par l'objectif pédagogique)
+var title = "TD 06"; // à changer à chaque TD (par l'objectif pédagogique)
+
+const getAllCommunes = (departementCode, callback) => {
+  const reponse = fetch(
+    `https://geo.api.gouv.fr/departements/${departementCode}/communes`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      callback(data);
+    });
+};
+const getAllDepartements = (regionCode, callback) => {
+  const response = fetch(
+    `https://geo.api.gouv.fr/regions/${regionCode}/departements`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      callback(data);
+    });
+};
+
+const getAllRegions = (callback) => {
+  const response = fetch("https://geo.api.gouv.fr/regions")
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      callback(data);
+    });
+};
 
 function main() {
-  let a = 23;
-  let b = 45;
+  const regionCodeRequested = "32";
+  const regions = getAllRegions((regions) => {
+    regions.map((region) => {
+      getAllDepartements(region.code, (departements) => {
+        departements.map((departement) => {
+          if (departement.code !== regionCodeRequested) {
+            getAllCommunes(departement.code, (communes) => {
+              communes.map((commune) => {
+                setContent(`${commune.nom}`);
+              });
+            });
+          }
+        });
+      });
+    });
+  });
 
-  // Vous pouvez utiliser cette fonction pour afficher un résultat sur la page.
-  setContent("a = " + a + " et b = " + b);
+  setContent(regions);
 }
 
 function setTitle() {
