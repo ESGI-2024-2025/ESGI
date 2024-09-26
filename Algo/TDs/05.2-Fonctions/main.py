@@ -1,6 +1,4 @@
 
-from random import randint
-
 def fibo_r(nombre_elements=7,suite=[0,1]) -> list:
 
     if nombre_elements <= 1:
