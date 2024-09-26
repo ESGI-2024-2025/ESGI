@@ -3,12 +3,57 @@
  */
 var title = "TD xx"; // à changer à chaque TD (par l'objectif pédagogique)
 
-function main() {
-  let a = 23;
-  let b = 45;
+const getAllCommunes = (departementCode, callback) => {
+  const reponse = fetch(
+    `https://geo.api.gouv.fr/departements/${departementCode}/communes`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      callback(data);
+    });
+};
+const getAllDepartements = (regionCode, callback) => {
+  const response = fetch(
+    `https://geo.api.gouv.fr/regions/${regionCode}/departements`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      callback(data);
+    });
+};
 
-  // Vous pouvez utiliser cette fonction pour afficher un résultat sur la page.
-  setContent("a = " + a + " et b = " + b);
+const getAllRegions = (callback) => {
+  const response = fetch("https://geo.api.gouv.fr/regions")
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      callback(data);
+    });
+};
+
+function main() {
+  const regions = getAllRegions((regions) => {
+    regions.map((region) => {
+      getAllDepartements(region.code, (departements) => {
+        setContent(
+          `${region.nom} (${region.code}) : ${departements.length} départements`
+        );
+        departements.map((departement) => {
+          setContent(`- ${departement.nom} (${departement.code})`);
+          getAllCommunes(departement.code, (communes) => {
+            setContent(`--- ${communes.length} communes`);
+            // communes.map((commune) => {
+            //   setContent(`------ ${commune.nom}`);
+            // });
+          });
+        });
+      });
+    });
+  });
+
+  setContent(regions);
 }
 
 function setTitle() {
