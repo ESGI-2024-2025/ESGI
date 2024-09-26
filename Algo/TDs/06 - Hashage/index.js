@@ -39,7 +39,7 @@ function main() {
     regions.map((region) => {
       getAllDepartements(region.code, (departements) => {
         departements.map((departement) => {
-          if (departement.code !== "971") {
+          if (departement.code !== regionCodeRequested) {
             getAllCommunes(departement.code, (communes) => {
               communes.map((commune) => {
                 setContent(`${commune.nom}`);
