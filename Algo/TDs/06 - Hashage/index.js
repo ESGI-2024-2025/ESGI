@@ -1,7 +1,7 @@
 "use strict";
 /* CDC
  */
-var title = "TD xx"; // à changer à chaque TD (par l'objectif pédagogique)
+var title = "TD 06"; // à changer à chaque TD (par l'objectif pédagogique)
 
 const getAllCommunes = (departementCode, callback) => {
   const reponse = fetch(
@@ -34,20 +34,18 @@ const getAllRegions = (callback) => {
 };
 
 function main() {
+  const regionCodeRequested = "32";
   const regions = getAllRegions((regions) => {
     regions.map((region) => {
       getAllDepartements(region.code, (departements) => {
-        setContent(
-          `${region.nom} (${region.code}) : ${departements.length} départements`
-        );
         departements.map((departement) => {
-          setContent(`- ${departement.nom} (${departement.code})`);
-          getAllCommunes(departement.code, (communes) => {
-            setContent(`--- ${communes.length} communes`);
-            // communes.map((commune) => {
-            //   setContent(`------ ${commune.nom}`);
-            // });
-          });
+          if (departement.code !== "971") {
+            getAllCommunes(departement.code, (communes) => {
+              communes.map((commune) => {
+                setContent(`${commune.nom}`);
+              });
+            });
+          }
         });
       });
     });
